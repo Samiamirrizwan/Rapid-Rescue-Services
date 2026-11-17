@@ -1,0 +1,47 @@
+# Local environment / secrets
+.env
+.env.*
+!.env.example
+config.local.php
+secrets.php
+
+# Logs and runtime files
+*.log
+/cache/
+/tmp/
+/temp/
+/sessions/
+
+# Local uploads and generated user content
+/uploads/
+/user_uploads/
+/storage/uploads/
+
+# Local database exports and backups (keep the tracked schema-only SQL file)
+*.bak
+*.backup
+*.old
+*.dump
+*.sql.gz
+*.sqlite
+*.db
+
+# Archives and project demo recordings
+*.zip
+*.rar
+*.7z
+*.mp4
+*.mov
+*.avi
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Git internals
+.git/
