@@ -76,10 +76,6 @@ rapid-rescue-services/
 └── README.md
 ```
 
-### Project Documentation Video
-
-[Watch the Rapid Rescue Services Walkthrough](docs/media/rapid-rescue-services-demo.mp4)
-
 
 ## Getting started
 
