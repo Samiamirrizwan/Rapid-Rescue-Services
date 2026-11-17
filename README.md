@@ -76,6 +76,11 @@ rapid-rescue-services/
 └── README.md
 ```
 
+### Project Documentation Video
+
+[Watch the Rapid Rescue Services Walkthrough](docs/media/rapid-rescue-services-demo.mp4)
+
+
 ## Getting started
 
 1. Install a local PHP + Apache + MySQL/MariaDB environment, such as XAMPP.
