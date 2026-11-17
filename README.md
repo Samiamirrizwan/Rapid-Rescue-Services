@@ -1,118 +1,192 @@
 # Rapid Rescue Services (RRS)
 
-**A PHP and MySQL-based E-Ambulance Hiring and Request Management Portal**
+**A PHP & MySQL-Based E-Ambulance Booking and Request Management System**
 
-Rapid Rescue Services (RRS) is a web-based ambulance hiring portal built to make it easier for people to submit ambulance requests and follow the progress of those requests. It also provides separate working areas for administrators and Driver / EMT staff to manage ambulance-related records and request statuses.
+Rapid Rescue Services (RRS) is a web-based ambulance booking and request management portal designed to simplify the process of requesting ambulance services and managing emergency transportation requests.
 
-This repository contains the PHP application, its front-end assets, and a schema-only MySQL database export. It is a legacy academic/project implementation and should be treated as a development prototype—not as a certified emergency-dispatch or patient-care system.
+The application provides separate working environments for administrators, registered users, and Driver / EMT staff. Each module supports different responsibilities, from managing ambulance requests to reviewing assignments and updating service statuses.
 
-## What the project includes
+This project was developed as a web application project and is suitable for academic demonstration, learning, and further development.
 
-### Public website
+---
 
-- Home page with an ambulance-hiring request form.
-- About, contact, and gallery pages.
-- Ambulance request lookup using a booking number, patient name, or relative contact number.
-- Booking details and request-status display.
+## Project Overview
 
-### Admin area
+The system is organized around three primary modules:
 
-- Administrator sign-in and dashboard.
-- Ambulance records and fleet information management.
-- Request review and ambulance assignment.
-- Request status views, search, and reports.
-- Admin profile and page-content management screens.
+### 1. Administration Module
+- Administrator login and dashboard.
+- Ambulance and fleet record management.
+- Review and management of ambulance requests.
+- Ambulance assignment and request-status monitoring.
+- Search, filtering, and reporting screens.
+- Profile and website-content management.
 
-### User area
+### 2. User Module
+- User login and dashboard.
+- Profile management.
+- Ambulance booking and request-related pages.
+- Booking status and history views.
+- Access to general ambulance service information.
 
-- User sign-in and dashboard.
-- User profile and password-management screens.
-- Ambulance request and booking-related pages.
-- Request status and history views.
-
-### Driver / EMT area
-
-- Driver / EMT sign-in and dashboard.
-- Assigned request and ambulance-related screens.
+### 3. Driver / EMT Module
+- Driver / EMT login and dashboard.
+- Assigned request and ambulance-related information.
 - Request status and reporting pages.
 - Driver profile and password-management screens.
 
-> **Tracking scope:** the supplied public tracking page searches existing booking records and displays their recorded status. The inspected implementation does not provide verified live GPS coordinates or a live ambulance map. GPS functionality appears in the requirements document, but should be treated as a future requirement rather than a currently confirmed feature.
+## Project Documentation and Walkthrough
 
-## Technology stack
+The project is accompanied by a written requirements document describing its objectives, functional requirements, non-functional requirements, and intended user roles.
+
+**Written documentation:**  
+[`docs/RRS-Project-Requirements.docx`](docs/RRS-Project-Requirements.docx)
+
+The documentation covers:
+
+- Project introduction and emergency-service context.
+- Functional requirements for Admin, Users, and Driver / EMT personnel.
+- Ambulance booking and dispatch-management requirements.
+- Patient medical profile and emergency contact requirements.
+- Ambulance tracking and status-update requirements.
+- Common website features, including contact forms, feedback, gallery, and notifications.
+- Non-functional requirements such as usability, security, compatibility, availability, and scalability.
+
+
+## Technology Stack
 
 | Layer | Technology |
 |---|---|
-| Server-side | PHP |
+| Backend | PHP |
 | Database | MySQL / MariaDB |
-| Database access | MySQLi |
-| Front-end | HTML, CSS, JavaScript |
-| UI libraries | Bootstrap, jQuery, Font Awesome and bundled vendor assets |
-| Local server | Apache with PHP and MySQL/MariaDB (for example, XAMPP) |
+| Database connectivity | MySQLi |
+| Frontend | HTML, CSS, JavaScript |
+| UI libraries | Bootstrap, jQuery, Font Awesome |
+| Local development | XAMPP |
+| Database management | phpMyAdmin |
 
-The supplied SQL export records MariaDB **10.4.28** and PHP **8.2.4** in its original phpMyAdmin dump header. These are the environment versions recorded by the export, not a guarantee that every newer PHP or database version has been tested.
+The supplied database export records MariaDB 10.4.28 and PHP 8.2.4 in its original phpMyAdmin header. These are recorded environment versions, not a guarantee of compatibility with every newer release.
 
-## Project structure
+## Project Structure
 
 ```text
 rapid-rescue-services/
-├── admin/                  # Administration portal
-├── user/                   # User portal
-├── driver emts/            # Driver / EMT portal
-├── gallery/                # Gallery pages
-├── includes/               # Shared public-site PHP includes
-├── assets/                 # CSS, JavaScript, images and front-end vendors
+│
+├── admin/                   # Administration portal
+├── user/                    # User portal
+├── driver emts/             # Driver / EMT portal
+├── gallery/                 # Gallery pages
+├── includes/                # Shared PHP includes
+├── assets/                  # CSS, JS, images and vendor assets
+│
 ├── SQL File/
-│   └── rapid_rescue_final.sql  # Schema-only database export
+│   └── rapid_rescue_final.sql
+│
 ├── docs/
-│   └── RRS-Project-Requirements.docx
-├── index.php               # Public landing page
+│   ├── RRS-Project-Requirements.docx
+│
+├── index.php
 ├── about.php
 ├── contact.php
 ├── ambulance-tracking.php
 ├── booking-details.php
+│
 ├── DATABASE_SETUP.md
 ├── GITHUB_SETUP.md
+├── LICENSE.md
 └── README.md
 ```
 
+The demonstration video path is a planned location; add the actual media file before publishing the link.
 
-## Getting started
+## Getting Started
 
-1. Install a local PHP + Apache + MySQL/MariaDB environment, such as XAMPP.
-2. Copy this repository folder into your web server's document root (for XAMPP, usually `htdocs`).
-3. Create a MySQL database using the exact name **`Rapid Rescue Final`**. The current PHP connection files use this database name.
-4. Import [`SQL File/rapid_rescue_final.sql`](SQL%20File/rapid_rescue_final.sql) using phpMyAdmin or the MySQL command line.
-5. Check the database settings in all five `includes/dbconnection.php` files. For the default local XAMPP setup, the source currently expects host `localhost`, user `root`, and an empty password.
-6. Create local test accounts as described in [`DATABASE_SETUP.md`](DATABASE_SETUP.md). The original seeded account records have deliberately been removed from this public repository copy.
-7. Open the project in your browser, for example: `http://localhost/rapid-rescue-services/`.
+### Prerequisites
 
-For full development and production-host database steps, see **[DATABASE_SETUP.md](DATABASE_SETUP.md)**. For creating the GitHub repository and pushing this project with Git, see **[GITHUB_SETUP.md](GITHUB_SETUP.md)**.
+- PHP-enabled Apache web server.
+- MySQL or MariaDB.
+- XAMPP or an equivalent local development environment.
+- Web browser.
+- phpMyAdmin or MySQL command-line access.
 
-## Important setup notes
+### Installation
 
-- The folder name used in the current code for the Driver / EMT portal contains a space: `driver emts`. Keep that folder name unchanged unless you also update every reference to it.
-- Database connection settings are repeated in five PHP files. Update all five consistently when changing database credentials.
-- The published SQL file is schema-only. It preserves the table definitions and indexes but does not include the original sample records, user details, booking records, or password hashes.
-- There is no ready-made public admin account in this repository. Create your own local test account using the development-only instructions in `DATABASE_SETUP.md`.
+1. Download or clone the repository.
+2. Place the project folder inside the web server's document root.
+3. Create a database named `Rapid Rescue Final`.
+4. Import the SQL file from `SQL File/rapid_rescue_final.sql`.
+5. Review and update the database connection settings in the five existing PHP database-connection files.
+6. Create your own development test accounts.
+7. Start Apache and MySQL.
+8. Open the application in your browser.
 
-## Known limitations and production-readiness
+```text
+http://localhost/rapid-rescue-services/
+```
 
-This codebase is a starting point for learning, demonstration, or further development. A review of the supplied source files found several items that should be addressed before any public or production deployment:
+For detailed database configuration, see [`DATABASE_SETUP.md`](DATABASE_SETUP.md).
 
-- Login logic uses **MD5** for password comparison. MD5 is not suitable for storing passwords. Migrate authentication to PHP's `password_hash()` and `password_verify()`.
-- Several database queries build SQL strings directly from submitted form values. Replace these with prepared statements to reduce SQL-injection risk.
-- Database credentials are hard-coded in multiple connection files. Move secrets into environment-specific configuration outside the public web root and never commit production credentials.
-- Registration is not complete across all roles. In particular, the Driver / EMT registration script references a PDO connection and a `drivers` table that do not match the supplied MySQLi connection and schema; do not rely on it as-is.
-- The tracking page is a booking-status lookup, not a verified real-time GPS tracking service.
-- The bundled database export was sanitized for public sharing. Real patient, contact, or booking data must never be placed in a public repository.
+For Git initialization, remote repository configuration, and publishing instructions, see [`GITHUB_SETUP.md`](GITHUB_SETUP.md).
 
-**Do not use this project to dispatch real ambulances, make clinical decisions, or store real patient information until it has been substantially refactored, security-tested, privacy-reviewed, and validated by qualified emergency-service and healthcare professionals.** Configuring a production database server alone does not make the application production-ready.
+## Database Information
+
+The repository contains a sanitized, schema-only database export.
+
+The original sample records and personal information have been excluded from the public copy. Developers should create their own local test records.
+
+The development and production-host database configuration procedures are explained separately in `DATABASE_SETUP.md`.
+
+## Important Development Notes
+
+- The existing Driver / EMT folder contains a space in its name. Preserve it unless all corresponding application references are updated.
+- Database connection settings are repeated across five PHP files.
+- The current login implementation uses MD5 password comparison. This should be migrated to PHP's `password_hash()` and `password_verify()` functions.
+- Some SQL queries directly interpolate submitted form values. Prepared statements should replace these queries.
+- Database credentials are hard-coded in multiple files and should be moved into secure environment-specific configuration.
+- Driver / EMT registration has inconsistencies between its database connection approach and the supplied schema.
+- The current tracking page performs booking-status lookup; it should not be represented as verified real-time GPS tracking.
+
+## Production Readiness and Safety
+
+This application is an academic and development prototype.
+
+It must not be used as an operational emergency-dispatch platform or for storing actual patient information without substantial security, privacy, reliability, and functionality improvements.
+
+Configuring a production database server does not, by itself, make the application production-ready.
+
+## Future Improvements
+
+Potential development improvements include:
+
+- Centralized database configuration.
+- Secure authentication and role-based authorization.
+- Prepared SQL statements throughout the application.
+- Real-time ambulance location integration.
+- Improved request notifications.
+- More complete Driver / EMT registration.
+- Automated testing and validation.
+- Responsive interface improvements.
+- Audit logs and improved access control.
 
 ## Contributing
 
-For personal learning or project development, create a branch for your changes, keep credentials and real user data out of Git, and document any changes to the database schema. Before submitting changes, test the public booking flow and each portal against a fresh local database import.
+Contributions for educational and development purposes are welcome.
+
+Before submitting changes:
+
+1. Create a separate Git branch.
+2. Test your changes against a fresh database import.
+3. Keep credentials and real personal information out of commits.
+4. Document changes to database tables and relationships.
+5. Verify the Admin, User, and Driver / EMT modules.
 
 ## License
 
-No project-wide open-source license is included. Confirm that you own or have permission to redistribute the application code, images, fonts, and bundled third-party libraries before publishing the repository publicly. A repository without an explicit license does not grant general permission to reuse its contents.
+Please refer to [`LICENSE.md`](LICENSE.md) for the repository's usage and redistribution terms.
+
+---
+
+**Project:** Rapid Rescue Services  
+**Category:** E-Ambulance Booking and Request Management  
+**Backend:** PHP  
+**Database:** MySQL / MariaDB
